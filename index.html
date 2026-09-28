@@ -10,357 +10,354 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;450;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+:root{interpolate-size:allow-keywords}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:#fff;color:#23333A;font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:#F5EFE3;color:#1E1B17;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 *{box-sizing:border-box}
-a{color:#46697A;text-decoration:none}
-a:hover{color:#23333A}
-@media (max-width:720px){
-  [data-row]{grid-template-columns:minmax(0,1fr) !important;gap:6px !important}
-  [data-hero]{grid-template-columns:minmax(0,1fr) !important;gap:26px !important}
-  [data-hero] [data-portrait]{width:100% !important;max-width:340px !important;height:auto !important;aspect-ratio:4/5;order:-1}
-  [data-nav]{height:auto !important;padding:12px 20px !important;flex-wrap:wrap !important;row-gap:6px !important}
-  [data-navlinks]{gap:16px !important;font-size:14px !important;flex-wrap:wrap}
-  [data-pad]{padding-left:20px !important;padding-right:20px !important}
-  [data-meta]{padding-top:0 !important}
-  [data-bullets]{padding-left:18px !important}
-}
+a{color:#B4472F;text-decoration:none}
+a:hover{color:#1E1B17}
+::selection{background:#B4472F;color:#fff}
 summary::-webkit-details-marker{display:none}
 summary::marker{content:""}
-details[open] [data-chev]{transform:rotate(180deg)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+details::details-content{block-size:0;overflow:hidden;transition:block-size .32s ease,content-visibility .32s allow-discrete}
+details[open]::details-content{block-size:auto}
+details[open] [data-chev]{transform:rotate(45deg);background:#B4472F !important;border-color:#B4472F !important;color:#fff !important}
+@media (max-width:760px){
+  [data-hero]{grid-template-columns:minmax(0,1fr) !important;gap:30px !important;text-align:left}
+  [data-portrait]{width:calc(100% - 16px) !important;max-width:340px !important;height:auto !important;aspect-ratio:4/5;justify-self:start;margin:8px}
+  [data-sum]{grid-template-columns:30px minmax(0,1fr) auto !important;gap:6px 14px !important;padding:18px 0 !important}
+  [data-sum] [data-meta]{grid-column:2/3;grid-row:1}
+  [data-sum] [data-num]{grid-row:1/3}
+  [data-sum] > div:nth-of-type(2){grid-column:2/3;grid-row:2}
+  [data-sum] [data-chev]{grid-column:3;grid-row:1/3}
+  [data-body]{padding:0 0 22px 44px !important}
+  [data-pad]{padding-left:20px !important;padding-right:20px !important}
+  [data-sechead] > span{font-size:60px !important}
+  [data-sechead] h2{font-size:36px !important}
+  [data-navlinks]{gap:14px !important;font-size:14px !important}
+  [data-about]{grid-template-columns:minmax(0,1fr) !important;gap:36px !important}
+  [data-interests]{grid-template-columns:minmax(0,1fr) !important}
+}
+@media (max-width:440px){[data-navname]{display:none !important}[data-nav]{justify-content:center !important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}details::details-content{transition:none}}
 </style>
 </helmet>
 
-<div style="max-width:100%;font-size:17px;line-height:1.65">
+<div style="font-size:16px;line-height:1.6">
 
-<nav style="position:sticky;top:0;z-index:10;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid #DCE6EA">
-  <div data-nav="1" style="max-width:840px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px">
-    <a href="#top" style="font-family:Newsreader,Georgia,serif;font-size:18px;font-weight:500;color:#23333A;letter-spacing:.01em;white-space:nowrap">Kaitlyn Lee</a>
-    <div data-navlinks="1" style="display:flex;gap:22px;font-size:14.5px">
-      <a href="#experience" style="color:#5F757E">Experience</a>
-      <a href="#activities" style="color:#5F757E">Activities</a>
-      <a href="#about" style="color:#5F757E">About</a>
-      <a href="resume.pdf" style="color:#46697A">Résumé</a>
+<nav style="position:sticky;top:0;z-index:10;background:rgba(245,239,227,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #DDD3C2">
+  <div data-nav="1" data-pad="1" style="max-width:1000px;margin:0 auto;padding:0 32px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:14px">
+    <a data-navname="1" href="#top" style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;color:#1E1B17;white-space:nowrap">Kaitlyn Lee</a>
+    <div data-navlinks="1" style="display:flex;gap:26px;font-size:14.5px">
+      <a href="#experience" style="color:#1E1B17" style-hover="color:#B4472F">Experience</a>
+      <a href="#activities" style="color:#1E1B17" style-hover="color:#B4472F">Activities</a>
+      <a href="#about" style="color:#1E1B17" style-hover="color:#B4472F">About</a>
+      <a href="resume.pdf" target="_blank" rel="noopener noreferrer" style="color:#B4472F;font-weight:600" style-hover="color:#1E1B17">Résumé</a>
     </div>
   </div>
 </nav>
 
-<header id="top" style="border-bottom:1px solid #DCE6EA;padding:60px 0 56px">
-  <div data-hero="1" data-pad="1" style="max-width:840px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:minmax(0,1fr) 216px;gap:44px;align-items:start">
-    <div>
-      <h1 style="font-family:Newsreader,Georgia,serif;font-weight:500;font-size:clamp(38px,7vw,62px);line-height:1.03;letter-spacing:-.02em;margin:0 0 16px">Kaitlyn Lee</h1>
-      <p style="font-size:17px;color:#5F757E;margin:0 0 28px;max-width:46ch;text-wrap:pretty">Computational and Applied Mathematics and Economics at the University of Chicago, Class of 2029</p>
-      <div style="display:flex;flex-wrap:wrap;gap:10px">
-        <a href="resume.pdf" style="padding:9px 16px;font-size:14.5px;border:1px solid #DCE6EA;border-radius:999px;color:#23333A" style-hover="border-color:#46697A;color:#46697A">Résumé</a>
-        <a href="mailto:klee29@uchicago.edu" style="padding:9px 16px;font-size:14.5px;border:1px solid #DCE6EA;border-radius:999px;color:#23333A;word-break:break-word" style-hover="border-color:#46697A;color:#46697A">klee29@uchicago.edu</a>
-        <a href="https://www.linkedin.com/in/kaitlynslee/" style="padding:9px 16px;font-size:14.5px;border:1px solid #DCE6EA;border-radius:999px;color:#23333A" style-hover="border-color:#46697A;color:#46697A">LinkedIn</a>
+<header id="top" style="padding:72px 0 64px">
+  <div data-hero="1" data-pad="1" style="max-width:1000px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:60px;align-items:center">
+    <div data-reveal="1">
+      <h1 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(48px,9vw,96px);line-height:1;letter-spacing:-.025em;margin:0 0 28px">Kaitlyn Lee</h1>
+      <p style="font-size:18px;line-height:1.5;margin:0 0 30px;text-wrap:pretty">Computational and Applied Mathematics and Economics at the University of Chicago, Class of 2029</p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" style="padding:11px 20px;font-size:14.5px;font-weight:600;background:#1E1B17;color:#F5EFE3;border-radius:999px" style-hover="background:#B4472F;color:#fff">Résumé</a>
+        <a href="mailto:klee29@uchicago.edu" target="_blank" rel="noopener noreferrer" style="padding:11px 20px;font-size:14.5px;font-weight:500;border:1px solid #1E1B17;color:#1E1B17;border-radius:999px" style-hover="background:#1E1B17;color:#F5EFE3">Email</a>
+        <a href="https://www.linkedin.com/in/kaitlynslee/" target="_blank" rel="noopener noreferrer" style="padding:11px 20px;font-size:14.5px;font-weight:500;border:1px solid #1E1B17;color:#1E1B17;border-radius:999px" style-hover="background:#1E1B17;color:#F5EFE3">LinkedIn</a>
       </div>
     </div>
-    <img data-portrait="1" src="headshot.jpg" alt="Kaitlyn Lee" style="width:216px;height:264px;object-fit:cover;border-radius:3px;display:block;background:#EAF1F4">
+    <img data-portrait="1" data-reveal="1" src="headshot.jpg" alt="Kaitlyn Lee" style="width:300px;height:390px;object-fit:cover;display:block;border-radius:0;background:#E9E0CF;outline:1px solid #1E1B17;outline-offset:8px">
   </div>
 </header>
 
+<div aria-hidden="true" style="max-width:1000px;margin:0 auto;padding:0 32px"><div style="height:0;border-top:2px dashed #B4472F;opacity:.45"></div></div>
+
 <main>
-
-<section id="experience" style="padding:56px 0;border-bottom:1px solid #DCE6EA">
-  <div data-pad="1" style="max-width:840px;margin:0 auto;padding:0 28px">
-    <h2 style="font-family:Newsreader,Georgia,serif;font-weight:500;font-size:26px;letter-spacing:0;color:#46697A;margin:0 0 34px;padding-bottom:9px;border-bottom:3px solid #F7EDBC;display:inline-block">Experience</h2>
-
-    <div style="padding:0 0 20px">
-      <details><summary data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;cursor:pointer;list-style:none" style-hover="opacity:.72">
-        <div data-meta="1" style="font-size:14px;color:#5F757E;line-height:1.5;padding-top:5px">Jun to Aug 2026<br>Seoul, Korea</div>
-        <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between">
-          <div>
-            <p style="font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin:0 0 3px;line-height:1.3;text-wrap:pretty">Glenwood Private Equity</p>
-            <p style="font-size:15px;color:#5F757E;margin:0">Summer Analyst</p>
-          </div>
-          <span data-chev="1" style="display:inline-block;font-size:22px;line-height:1;color:#46697A;padding-top:4px;flex:none;transition:transform .2s ease">▾</span>
-        </div>
-      </summary>
-        <div data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;margin-top:14px">
-          <div></div>
-          <ul data-bullets="1" style="margin:0;padding-left:19px;display:grid;gap:8px">
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Developed and presented an individual investment pitch on a Korean automotive chassis systems company to nine investment professionals, covering company analysis, industry research, trading comparables, thesis development and value creation.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Studied the industry structure the pitch rested on, including content-per-vehicle trends, customer concentration across the OEM base, and what happens to the thesis if the shift in EV platform mix moves faster than the base case assumes.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Built the value creation case around margin recovery rather than multiple expansion, then defended the assumption that mattered most: how durable the company's OEM relationships actually are.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Constructed and analyzed historical financial statements across the comp set, working through cash generation, capital expenditures, interest expense, net income, margins, and valuation metrics including EV/EBITDA, to identify the operating and financial trends that mattered.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Created Public Information Books and supporting industry research materials, evaluating historical and projected operating performance, market outlooks, peer positioning, and indexed financial trends across prospective investment opportunities.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-
-    <div style="padding:20px 0;border-top:1px solid #DCE6EA">
-      <details><summary data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;cursor:pointer;list-style:none" style-hover="opacity:.72">
-        <div data-meta="1" style="font-size:14px;color:#5F757E;line-height:1.5;padding-top:5px">Jun to Aug 2026<br>Chicago, IL</div>
-        <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between">
-          <div>
-            <p style="font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin:0 0 3px;line-height:1.3;text-wrap:pretty">Confidential client, a Korean conglomerate</p>
-            <p style="font-size:15px;color:#5F757E;margin:0">Research Analyst</p>
-          </div>
-          <span data-chev="1" style="display:inline-block;font-size:22px;line-height:1;color:#46697A;padding-top:4px;flex:none;transition:transform .2s ease">▾</span>
-        </div>
-      </summary>
-        <div data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;margin-top:14px">
-          <div></div>
-          <ul data-bullets="1" style="margin:0;padding-left:19px;display:grid;gap:8px">
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Co-authored a four-part commissioned research series on the AI and enterprise software ecosystem, tracing the shift from prompt and context engineering toward agentic execution and analyzing its implications for infrastructure demand, software business models, and industry value creation.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Covered inference economics, autonomous workflows, AI infrastructure and developer ecosystems, data-driven moats, and evolving SaaS pricing, working toward where value accrues across the AI stack.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-
-    <div style="padding:20px 0;border-top:1px solid #DCE6EA">
-      <details><summary data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;cursor:pointer;list-style:none" style-hover="opacity:.72">
-        <div data-meta="1" style="font-size:14px;color:#5F757E;line-height:1.5;padding-top:5px">Feb to Jun 2026<br>Chicago, IL</div>
-        <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between">
-          <div>
-            <p style="font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin:0 0 3px;line-height:1.3;text-wrap:pretty">Impact America Fund</p>
-            <p style="font-size:15px;color:#5F757E;margin:0">Investment Analyst</p>
-          </div>
-          <span data-chev="1" style="display:inline-block;font-size:22px;line-height:1;color:#46697A;padding-top:4px;flex:none;transition:transform .2s ease">▾</span>
-        </div>
-      </summary>
-        <div data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;margin-top:14px">
-          <div></div>
-          <ul data-bullets="1" style="margin:0;padding-left:19px;display:grid;gap:8px">
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Researched SMB enablement software serving under-resourced small businesses, with a focus on tools for real estate agents, analyzing customer pain points, workflow inefficiencies, and market adoption drivers.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Built a market map of more than ten early-stage real estate agent software companies, comparing product positioning, customer segments, monetization and pricing, competitive differentiation, and relevance to the fund's impact-oriented mandate.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Assessed more than fifteen seed and pre-seed companies on retention and churn where data existed, and on customer durability and product use case where it did not, to evaluate fit with the fund's investment criteria.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-
-    <div style="padding:20px 0 0;border-top:1px solid #DCE6EA">
-      <details><summary data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;cursor:pointer;list-style:none" style-hover="opacity:.72">
-        <div data-meta="1" style="font-size:14px;color:#5F757E;line-height:1.5;padding-top:5px">Jan to Mar 2026<br>Chicago, IL</div>
-        <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between">
-          <div>
-            <p style="font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin:0 0 3px;line-height:1.3;text-wrap:pretty">Strategy Consulting Project</p>
-            <p style="font-size:15px;color:#5F757E;margin:0">Strategy Consultant</p>
-          </div>
-          <span data-chev="1" style="display:inline-block;font-size:22px;line-height:1;color:#46697A;padding-top:4px;flex:none;transition:transform .2s ease">▾</span>
-        </div>
-      </summary>
-        <div data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;margin-top:14px">
-          <div></div>
-          <ul data-bullets="1" style="margin:0;padding-left:19px;display:grid;gap:8px">
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Developed a commissioned US market entry strategy for a Korean life insurance company, analyzing how blockchain and tokenization could support new insurance products, improve policyholder access, and create more efficient beneficiary transfer processes for middle-class customers.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Built out the inheritance strategy in full as a digital-first probate workflow for beneficiary verification and non-cash asset transfer, with the potential to reduce estate settlement timelines from several years to a few months and probate costs from 3–8% of total assets to 1–2%.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Argued that middle-class estates are where that spread hurts most, and where incumbents have the least commercial reason to compete today.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section id="activities" style="padding:56px 0;border-bottom:1px solid #DCE6EA">
-  <div data-pad="1" style="max-width:840px;margin:0 auto;padding:0 28px">
-    <h2 style="font-family:Newsreader,Georgia,serif;font-weight:500;font-size:26px;letter-spacing:0;color:#46697A;margin:0 0 34px;padding-bottom:9px;border-bottom:3px solid #F7EDBC;display:inline-block">Activities and programs</h2>
-
-    <div style="padding:0 0 20px">
-      <details><summary data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;cursor:pointer;list-style:none" style-hover="opacity:.72">
-        <div data-meta="1" style="font-size:14px;color:#5F757E;line-height:1.5;padding-top:5px">2026 to 2029<br>Chicago, IL</div>
-        <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between">
-          <div>
-            <p style="font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin:0 0 3px;line-height:1.3;text-wrap:pretty">Trott Business Program</p>
-            <p style="font-size:15px;color:#5F757E;margin:0">2026 cohort</p>
-          </div>
-          <span data-chev="1" style="display:inline-block;font-size:22px;line-height:1;color:#46697A;padding-top:4px;flex:none;transition:transform .2s ease">▾</span>
-        </div>
-      </summary>
-        <div data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;margin-top:14px">
-          <div></div>
-          <ul data-bullets="1" style="margin:0;padding-left:19px;display:grid;gap:8px">
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Accepted into the 2026 cohort of a selective three-year program in financial analysis, valuation and strategy, taught through weekly workshops and coursework at the Booth School of Business.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Worked through the program's business skills curriculum alongside professional advising and mentorship from upperclassmen and Booth students, with Booth coursework layered onto my College classes in the second, third and fourth years.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-
-    <div style="padding:20px 0;border-top:1px solid #DCE6EA">
-      <details><summary data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;cursor:pointer;list-style:none" style-hover="opacity:.72">
-        <div data-meta="1" style="font-size:14px;color:#5F757E;line-height:1.5;padding-top:5px">Sep 2025 to present<br>Chicago, IL</div>
-        <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between">
-          <div>
-            <p style="font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin:0 0 3px;line-height:1.3;text-wrap:pretty">UChicago Sustainable Investing Group</p>
-            <p style="font-size:15px;color:#5F757E;margin:0">Investment Analyst</p>
-          </div>
-          <span data-chev="1" style="display:inline-block;font-size:22px;line-height:1;color:#46697A;padding-top:4px;flex:none;transition:transform .2s ease">▾</span>
-        </div>
-      </summary>
-        <div data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;margin-top:14px">
-          <div></div>
-          <ul data-bullets="1" style="margin:0;padding-left:19px;display:grid;gap:8px">
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Built a three-statement model and DCF for Costco through FY2030, and found that discounted cash flow alone could not justify the trading multiple at any WACC I could defend.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Argued the gap sits in membership economics, where renewal rates and fee income behave more like a subscription annuity than retail earnings, which is what a standard DCF is worst at capturing.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Kept the buy and hold recommendation on that basis, treating the premium as compensation for the durability of fee income rather than something the terminal value would eventually grow into.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Flagged the case against it in the pitch itself: mature-market saturation, or any sustained trade-down in the core basket, takes a meaningful bite out of the terminal value.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-
-    <div style="padding:20px 0;border-top:1px solid #DCE6EA">
-      <details><summary data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;cursor:pointer;list-style:none" style-hover="opacity:.72">
-        <div data-meta="1" style="font-size:14px;color:#5F757E;line-height:1.5;padding-top:5px">Sep 2025 to present<br>Chicago, IL</div>
-        <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between">
-          <div>
-            <p style="font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin:0 0 3px;line-height:1.3;text-wrap:pretty">Eleven: Private Investors of Chicago</p>
-            <p style="font-size:15px;color:#5F757E;margin:0">General Member</p>
-          </div>
-          <span data-chev="1" style="display:inline-block;font-size:22px;line-height:1;color:#46697A;padding-top:4px;flex:none;transition:transform .2s ease">▾</span>
-        </div>
-      </summary>
-        <div data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;margin-top:14px">
-          <div></div>
-          <ul data-bullets="1" style="margin:0;padding-left:19px;display:grid;gap:8px">
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Attend weekly investment education workshops covering the three financial statements, WACC, DCF modeling and core valuation concepts, alongside stock pitch preparation.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Built the foundation for how revenue growth, margins, debt, cash flow and discount rates connect to a valuation, and how to communicate that to people who will push back on it.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-
-    <div style="padding:20px 0;border-top:1px solid #DCE6EA">
-      <details><summary data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;cursor:pointer;list-style:none" style-hover="opacity:.72">
-        <div data-meta="1" style="font-size:14px;color:#5F757E;line-height:1.5;padding-top:5px">Mar 2026 to present<br>Chicago, IL</div>
-        <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between">
-          <div>
-            <p style="font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin:0 0 3px;line-height:1.3;text-wrap:pretty">Asian Leadership Initiative</p>
-            <p style="font-size:15px;color:#5F757E;margin:0">General Member</p>
-          </div>
-          <span data-chev="1" style="display:inline-block;font-size:22px;line-height:1;color:#46697A;padding-top:4px;flex:none;transition:transform .2s ease">▾</span>
-        </div>
-      </summary>
-        <div data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;margin-top:14px">
-          <div></div>
-          <ul data-bullets="1" style="margin:0;padding-left:19px;display:grid;gap:8px">
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Support speaker events, information sessions and career focused programming for AAPI undergraduates across UChicago, Harvard, Duke, NYU and Columbia.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Assisted national board members in planning the 550 attendee NYC Summit, covering speaker coordination, attendee outreach, event materials and programming preparation for a conference featuring Peng Zhao and Alex Chi.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-
-    <div style="padding:20px 0;border-top:1px solid #DCE6EA">
-      <details><summary data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;cursor:pointer;list-style:none" style-hover="opacity:.72">
-        <div data-meta="1" style="font-size:14px;color:#5F757E;line-height:1.5;padding-top:5px">2026 to 2027<br>Chicago, IL</div>
-        <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between">
-          <div>
-            <p style="font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin:0 0 3px;line-height:1.3;text-wrap:pretty">UChicago Private Equity Explorers Program</p>
-            <p style="font-size:15px;color:#5F757E;margin:0">Inaugural cohort</p>
-          </div>
-          <span data-chev="1" style="display:inline-block;font-size:22px;line-height:1;color:#46697A;padding-top:4px;flex:none;transition:transform .2s ease">▾</span>
-        </div>
-      </summary>
-        <div data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;margin-top:14px">
-          <div></div>
-          <ul data-bullets="1" style="margin:0;padding-left:19px;display:grid;gap:8px">
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Selected for the inaugural cohort of the program, a year-long introduction to private investing built around workshops, buyside networking nights and an industry speaker series with firms including KKR and Bain Capital.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Completed the required Wall Street Prep modules on integrated three statement modeling, private company analysis, LBO modeling, and private credit and direct lending.</li>
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Building toward the Private Equity Deal Pitch Competition in May.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-
-    <div style="padding:20px 0 0;border-top:1px solid #DCE6EA">
-      <details><summary data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;cursor:pointer;list-style:none" style-hover="opacity:.72">
-        <div data-meta="1" style="font-size:14px;color:#5F757E;line-height:1.5;padding-top:5px">Jan 2026 to present<br>Chicago, IL</div>
-        <div style="display:flex;gap:14px;align-items:flex-start;justify-content:space-between">
-          <div>
-            <p style="font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin:0 0 3px;line-height:1.3;text-wrap:pretty">Women in Business</p>
-            <p style="font-size:15px;color:#5F757E;margin:0">General Member</p>
-          </div>
-          <span data-chev="1" style="display:inline-block;font-size:22px;line-height:1;color:#46697A;padding-top:4px;flex:none;transition:transform .2s ease">▾</span>
-        </div>
-      </summary>
-        <div data-row="1" style="display:grid;grid-template-columns:158px minmax(0,1fr);gap:26px;margin-top:14px">
-          <div></div>
-          <ul data-bullets="1" style="margin:0;padding-left:19px;display:grid;gap:8px">
-            <li style="font-size:15.5px;line-height:1.6;text-wrap:pretty">Member of the finance group's cohort, which meets weekly for discussion sessions on market trends, recent deals, and industry news.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section id="about" style="padding:56px 0">
-  <div data-pad="1" style="max-width:840px;margin:0 auto;padding:0 28px">
-    <h2 style="font-family:Newsreader,Georgia,serif;font-weight:500;font-size:26px;letter-spacing:0;color:#46697A;margin:0 0 34px;padding-bottom:9px;border-bottom:3px solid #F7EDBC;display:inline-block">About</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:36px 34px">
-      <div>
-        <h3 style="font-size:14px;font-weight:500;color:#5F757E;margin:0 0 10px;letter-spacing:.02em">Education</h3>
-        <div style="display:grid;gap:3px;margin-bottom:22px">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap">
-            <p style="font-family:Newsreader,Georgia,serif;font-size:18px;font-weight:500;margin:0">The University of Chicago</p>
-            <p style="margin:0;font-size:14.5px;color:#5F757E">Chicago, IL</p>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap">
-            <p style="margin:0;font-size:15.5px;max-width:44ch">Bachelor of Science in Computational and Applied Mathematics and Bachelor of Arts in Economics</p>
-            <p style="margin:0;font-size:14.5px;color:#5F757E;white-space:nowrap">Expected Jun. 2029</p>
-          </div>
-          <p style="margin:6px 0 0;font-size:15px;color:#5F757E">Cumulative GPA: 3.81/4.00</p>
-          <p style="margin:0;font-size:15px;color:#5F757E">Relevant Courses: Honors Calculus I, II, III, Abstract Linear Algebra, Microeconomics, Macroeconomics</p>
-        </div>
-        <div style="display:grid;gap:3px">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap">
-            <p style="font-family:Newsreader,Georgia,serif;font-size:18px;font-weight:500;margin:0">ACS International School Cobham</p>
-            <p style="margin:0;font-size:14.5px;color:#5F757E">Cobham, UK</p>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap">
-            <p style="margin:0;font-size:15.5px">High School Diploma</p>
-            <p style="margin:0;font-size:14.5px;color:#5F757E;white-space:nowrap">Sep. 2021 to Jun. 2025</p>
-          </div>
-          <p style="margin:6px 0 0;font-size:15px;color:#5F757E">Cumulative GPA: 4.87/4.00 (Weighted)</p>
-          <p style="margin:0;font-size:15px;color:#5F757E">Head of School's List, UKMT Kangaroo Merit Certificate</p>
-        </div>
+<section id="experience" style="padding:64px 0;scroll-margin-top:58px">
+  <div data-pad="1" style="max-width:1000px;margin:0 auto;padding:0 32px">
+    
+    <div data-reveal="1" data-sechead="1" style="display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;gap:18px;margin:0 0 26px">
+      <span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:84px;line-height:.8;color:#B4472F">i.</span>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <h2 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:46px;line-height:1;letter-spacing:-.01em;margin:0">Experience</h2>
+        <span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;color:#6B6358">tap any line to open</span>
       </div>
-      <div>
-        <h3 style="font-size:14px;font-weight:500;color:#5F757E;margin:0 0 10px;letter-spacing:.02em">Skills and interests</h3>
-        <p style="margin:0 0 8px;font-size:15.5px"><strong style="font-weight:500">Languages:</strong> English (Native), Korean (Native), German (Proficient in reading and writing)</p>
-        <p style="margin:0;font-size:15.5px"><strong style="font-weight:500">Skills:</strong> Microsoft Word, Excel, PowerPoint</p>
-        <sc-if value="{{ showInterests }}" hint-placeholder-val="{{ true }}">
-          <div style="margin-top:24px">
-            <h3 style="font-size:14px;font-weight:500;color:#5F757E;margin:0 0 10px;letter-spacing:.02em">Interests</h3>
-            <div style="display:flex;flex-wrap:wrap;gap:7px">
-              <span style="border:1px solid #F7EDBC;border-radius:999px;padding:5px 12px;font-size:14px">Flute</span>
-              <span style="border:1px solid #F7EDBC;border-radius:999px;padding:5px 12px;font-size:14px">Swimming</span>
-              <span style="border:1px solid #F7EDBC;border-radius:999px;padding:5px 12px;font-size:14px">Cooking</span>
-              <span style="border:1px solid #F7EDBC;border-radius:999px;padding:5px 12px;font-size:14px">Knitting</span>
-              <span style="border:1px solid #F7EDBC;border-radius:999px;padding:5px 12px;font-size:14px">Formula 1</span>
-              <span style="border:1px solid #F7EDBC;border-radius:999px;padding:5px 12px;font-size:14px">Word Hunt</span>
-              <span style="border:1px solid #F7EDBC;border-radius:999px;padding:5px 12px;font-size:14px">Legally Blonde</span>
+    </div>
+    
+    <div style="border-top:1px solid #1E1B17">
+      <sc-for list="{{ experience }}" as="item" hint-placeholder-count="4">
+        <details data-reveal="1" style="border-bottom:1px solid #DDD3C2">
+          <summary data-sum="1" style="display:grid;grid-template-columns:44px 170px minmax(0,1fr) auto;gap:20px;align-items:baseline;padding:22px 0;cursor:pointer;list-style:none" style-hover="background:#FBF8F1">
+            <span data-num="1" style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:22px;color:#B4472F;line-height:1">{{ item.n }}</span>
+            <div data-meta="1" style="font-size:14px;line-height:1.5;color:#6B6358">{{ item.dates }}<br><span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:16px;color:#1E1B17">{{ item.loc }}</span></div>
+            <div style="min-width:0">
+              <p style="font-family:'Instrument Serif',Georgia,serif;font-size:27px;line-height:1.12;margin:0 0 4px;text-wrap:pretty">{{ item.org }}</p>
+              <p style="font-size:14.5px;color:#6B6358;margin:0;text-wrap:pretty">{{ item.role }}</p>
             </div>
+            <span data-chev="1" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:999px;border:1px solid #1E1B17;color:#1E1B17;font-size:20px;line-height:1;flex:none;align-self:center;transition:transform .25s ease,background .2s,color .2s">+</span>
+          </summary>
+          <div data-body="1" style="padding:0 60px 26px 234px">
+            <ul style="margin:0;padding-left:18px;display:grid;gap:10px">
+              <sc-for list="{{ item.bullets }}" as="b" hint-placeholder-count="2">
+                <li style="font-size:15.5px;line-height:1.65;color:#37322B;text-wrap:pretty">{{ b }}</li>
+              </sc-for>
+            </ul>
           </div>
-        </sc-if>
+        </details>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<div aria-hidden="true" style="max-width:1000px;margin:0 auto;padding:0 32px"><div style="height:0;border-top:2px dashed #B4472F;opacity:.45"></div></div>
+
+<section id="activities" style="padding:64px 0;scroll-margin-top:58px">
+  <div data-pad="1" style="max-width:1000px;margin:0 auto;padding:0 32px">
+    
+    <div data-reveal="1" data-sechead="1" style="display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;gap:18px;margin:0 0 26px">
+      <span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:84px;line-height:.8;color:#B4472F">ii.</span>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <h2 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:46px;line-height:1;letter-spacing:-.01em;margin:0">Activities and programs</h2>
+        
       </div>
     </div>
+    
+    <div style="border-top:1px solid #1E1B17">
+      <sc-for list="{{ activities }}" as="item" hint-placeholder-count="6">
+        <details data-reveal="1" style="border-bottom:1px solid #DDD3C2">
+          <summary data-sum="1" style="display:grid;grid-template-columns:44px 170px minmax(0,1fr) auto;gap:20px;align-items:baseline;padding:22px 0;cursor:pointer;list-style:none" style-hover="background:#FBF8F1">
+            <span data-num="1" style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:22px;color:#B4472F;line-height:1">{{ item.n }}</span>
+            <div data-meta="1" style="font-size:14px;line-height:1.5;color:#6B6358">{{ item.dates }}<br><span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:16px;color:#1E1B17">{{ item.loc }}</span></div>
+            <div style="min-width:0">
+              <p style="font-family:'Instrument Serif',Georgia,serif;font-size:27px;line-height:1.12;margin:0 0 4px;text-wrap:pretty">{{ item.org }}</p>
+              <p style="font-size:14.5px;color:#6B6358;margin:0;text-wrap:pretty">{{ item.role }}</p>
+            </div>
+            <span data-chev="1" style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:999px;border:1px solid #1E1B17;color:#1E1B17;font-size:20px;line-height:1;flex:none;align-self:center;transition:transform .25s ease,background .2s,color .2s">+</span>
+          </summary>
+          <div data-body="1" style="padding:0 60px 26px 234px">
+            <ul style="margin:0;padding-left:18px;display:grid;gap:10px">
+              <sc-for list="{{ item.bullets }}" as="b" hint-placeholder-count="2">
+                <li style="font-size:15.5px;line-height:1.65;color:#37322B;text-wrap:pretty">{{ b }}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </details>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<div aria-hidden="true" style="max-width:1000px;margin:0 auto;padding:0 32px"><div style="height:0;border-top:2px dashed #B4472F;opacity:.45"></div></div>
+
+<section id="about" style="padding:64px 0 72px;scroll-margin-top:58px">
+  <div data-pad="1" style="max-width:1000px;margin:0 auto;padding:0 32px">
+    
+    <div data-reveal="1" data-sechead="1" style="display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;gap:18px;margin:0 0 26px">
+      <span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:84px;line-height:.8;color:#B4472F">iii.</span>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <h2 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:46px;line-height:1;letter-spacing:-.01em;margin:0">About</h2>
+        
+      </div>
+    </div>
+    <div data-about="1" style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:56px;border-top:1px solid #1E1B17;padding-top:28px;margin-bottom:56px">
+      <div data-reveal="1">
+        <p style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#B4472F;margin:0 0 16px">Education</p>
+        <div style="display:grid;gap:2px;margin-bottom:26px">
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-size:26px;line-height:1.15;margin:0">The University of Chicago</p>
+          <p style="margin:0 0 6px;font-size:14px;color:#6B6358">Chicago, IL · Expected Jun. 2029</p>
+          <p style="margin:0;font-size:15px;text-wrap:pretty">Bachelor of Science in Computational and Applied Mathematics and Bachelor of Arts in Economics</p>
+          <p style="margin:6px 0 0;font-size:14.5px;color:#6B6358">Cumulative GPA: 3.81/4.00</p>
+          <p style="margin:0;font-size:14.5px;color:#6B6358;text-wrap:pretty">Relevant Courses: Honors Calculus I, II, III, Abstract Linear Algebra, Microeconomics, Macroeconomics</p>
+        </div>
+        <div style="display:grid;gap:2px;padding-top:22px;border-top:1px solid #DDD3C2">
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-size:26px;line-height:1.15;margin:0">ACS International School Cobham</p>
+          <p style="margin:0 0 6px;font-size:14px;color:#6B6358">Cobham, UK · Sep. 2021 to Jun. 2025</p>
+          <p style="margin:0;font-size:15px">High School Diploma</p>
+          <p style="margin:6px 0 0;font-size:14.5px;color:#6B6358">Cumulative GPA: 4.87/4.00 (Weighted)</p>
+          <p style="margin:0;font-size:14.5px;color:#6B6358">Head of School's List, UKMT Kangaroo Merit Certificate</p>
+          <p style="margin:0;font-size:14.5px;color:#6B6358">ABRSM Flute Grade 8</p>
+        </div>
+      </div>
+      <div data-reveal="1">
+        <p style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#B4472F;margin:0 0 16px">Skills</p>
+        <p style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:19px;margin:0 0 4px">Languages</p>
+        <p style="margin:0 0 20px;font-size:15px;text-wrap:pretty">English (Native), Korean (Native), German (Proficient in reading and writing)</p>
+        <p style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:19px;margin:0 0 4px">Technical</p>
+        <p style="margin:0;font-size:15px">Microsoft Word, Excel, PowerPoint, PitchBook, Capital IQ</p>
+      </div>
+    </div>
+
+    <div data-reveal="1" style="margin:-28px 0 48px;border-top:1px solid #1E1B17;padding-top:22px">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px;margin:0 0 18px">
+        <p style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#B4472F;margin:0">Where I've lived</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));margin-left:-1px">
+        <div style="padding:18px 20px 20px;border-left:1px solid #DDD3C2">
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;color:#B4472F;margin:0 0 6px">01</p>
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-size:30px;line-height:1;margin:0 0 4px">Chicago</p>
+          <p style="font-size:13.5px;color:#6B6358;margin:0 0 10px">United States</p>
+          <p style="font-size:14.5px;line-height:1.55;margin:0;text-wrap:pretty">Born here and stayed until five, though I remember almost none of it. Back again for UChicago.</p>
+        </div>
+        <div style="padding:18px 20px 20px;border-left:1px solid #DDD3C2">
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;color:#B4472F;margin:0 0 6px">02</p>
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-size:30px;line-height:1;margin:0 0 4px">Seoul</p>
+          <p style="font-size:13.5px;color:#6B6358;margin:0 0 10px">South Korea</p>
+          <p style="font-size:14.5px;line-height:1.55;margin:0;text-wrap:pretty">Where my family is, and where I go back every break.</p>
+        </div>
+        <div style="padding:18px 20px 20px;border-left:1px solid #DDD3C2">
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;color:#B4472F;margin:0 0 6px">03</p>
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-size:30px;line-height:1;margin:0 0 4px">Frankfurt</p>
+          <p style="font-size:13.5px;color:#6B6358;margin:0 0 10px">Germany</p>
+          <p style="font-size:14.5px;line-height:1.55;margin:0;text-wrap:pretty">Where <em>Entschuldigung</em> was my first real German word, and the <em>Bäckerei</em> my first local.</p>
+        </div>
+        <div style="padding:18px 20px 20px;border-left:1px solid #DDD3C2">
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;color:#B4472F;margin:0 0 6px">04</p>
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-size:30px;line-height:1;margin:0 0 4px">London</p>
+          <p style="font-size:13.5px;color:#6B6358;margin:0 0 10px">United Kingdom</p>
+          <p style="font-size:14.5px;line-height:1.55;margin:0;text-wrap:pretty">Where a month of rain and Friday meal deals turned somewhere new into home.</p>
+        </div>
+      </div>
+    </div>
+
+    <sc-if value="{{ showInterests }}" hint-placeholder-val="{{ true }}">
+      <div data-reveal="1" style="background:#FBF8F1;border:1px solid #DDD3C2;border-radius:4px;padding:34px 32px 18px">
+        <p style="font-family:'Instrument Serif',Georgia,serif;font-size:34px;line-height:1;margin:0 0 6px">Off the clock</p>
+        <p style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;color:#6B6358;margin:0 0 22px">Interests, in no particular order</p>
+        <div data-interests="1" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px">
+          <sc-for list="{{ interests }}" as="it" hint-placeholder-count="8">
+            <div style="padding:16px 0;border-top:1px solid #DDD3C2">
+              
+              <div>
+                <p style="font-size:15.5px;font-weight:600;margin:0 0 3px">{{ it.t }}</p>
+                <p style="font-size:14.5px;line-height:1.55;color:#6B6358;margin:0;text-wrap:pretty">{{ it.d }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
   </div>
 </section>
 </main>
 
-<footer style="padding:24px 0 48px;border-top:1px solid #DCE6EA">
-  <div data-pad="1" style="max-width:840px;margin:0 auto;padding:24px 28px 0;font-size:13.5px;color:#5F757E">© 2026 Kaitlyn Lee</div>
+<footer style="background:#1E1B17;color:#F5EFE3">
+  <div data-pad="1" style="max-width:1000px;margin:0 auto;padding:36px 32px 44px;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px 24px">
+    <p style="font-family:'Instrument Serif',Georgia,serif;font-size:30px;line-height:1;margin:0">Kaitlyn Lee</p>
+    <div style="display:flex;flex-wrap:wrap;gap:20px;font-size:14.5px">
+      <a href="mailto:klee29@uchicago.edu" target="_blank" rel="noopener noreferrer" style="color:#F5EFE3" style-hover="color:#E0876F">Email</a>
+      <a href="https://www.linkedin.com/in/kaitlynslee/" target="_blank" rel="noopener noreferrer" style="color:#F5EFE3" style-hover="color:#E0876F">LinkedIn</a>
+      <a href="resume.pdf" target="_blank" rel="noopener noreferrer" style="color:#F5EFE3" style-hover="color:#E0876F">Résumé</a>
+      <span style="color:#A89F92">© 2026</span>
+    </div>
+  </div>
 </footer>
 </div>
-
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showInterests&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+const EXPERIENCE = [
+  { dates: "Jun to Aug 2026", loc: "Seoul, Korea", org: "Glenwood Private Equity", role: "Summer Analyst", bullets: [
+    "Developed and presented an individual investment pitch on a Korean automotive chassis systems company to nine investment professionals, covering company analysis, industry research, trading comparables, thesis development and value creation.",
+    "Studied the industry structure the pitch rested on, including content-per-vehicle trends, customer concentration across the OEM base, and what happens to the thesis if the shift in EV platform mix moves faster than the base case assumes.",
+    "Built the value creation case around margin recovery rather than multiple expansion, then defended the assumption that mattered most: how durable the company's OEM relationships actually are.",
+    "Constructed and analyzed historical financial statements across the comp set, working through cash generation, capital expenditures, interest expense, net income, margins, and valuation metrics including EV/EBITDA, to identify the operating and financial trends that mattered.",
+    "Created Public Information Books and supporting industry research materials, evaluating historical and projected operating performance, market outlooks, peer positioning, and indexed financial trends across prospective investment opportunities."
+  ]},
+  { dates: "Jun to Aug 2026", loc: "Remote", org: "AI SaaS Research Reports", role: "Research Analyst, for a confidential financial services conglomerate", bullets: [
+    "Co-authored a four-part commissioned research series on the AI and enterprise software ecosystem, tracing the shift from prompt and context engineering toward agentic execution and analyzing its implications for infrastructure demand, software business models, and industry value creation.",
+    "Covered inference economics, autonomous workflows, AI infrastructure and developer ecosystems, data-driven moats, and evolving SaaS pricing, working toward where value accrues across the AI stack."
+  ]},
+  { dates: "Feb to Jun 2026", loc: "Chicago, IL", org: "Impact America Fund", role: "Investment Analyst", bullets: [
+    "Researched SMB enablement software serving under-resourced small businesses, with a focus on tools for real estate agents, analyzing customer pain points, workflow inefficiencies, and market adoption drivers.",
+    "Built a market map of more than ten early-stage real estate agent software companies, comparing product positioning, customer segments, monetization and pricing, competitive differentiation, and relevance to the fund's impact-oriented mandate.",
+    "Assessed more than fifteen seed and pre-seed companies on retention and churn where data existed, and on customer durability and product use case where it did not, to evaluate fit with the fund's investment criteria."
+  ]},
+  { dates: "Jan to Mar 2026", loc: "Chicago, IL", org: "Strategy Consulting Project", role: "Strategy Consultant", bullets: [
+    "Developed a commissioned US market entry strategy for a Korean life insurance company, analyzing how blockchain and tokenization could support new insurance products, improve policyholder access, and create more efficient beneficiary transfer processes for middle-class customers.",
+    "Built out the inheritance strategy in full as a digital-first probate workflow for beneficiary verification and non-cash asset transfer, with the potential to reduce estate settlement timelines from several years to a few months and probate costs from 3–8% of total assets to 1–2%.",
+    "Argued that middle-class estates are where that spread hurts most, and where incumbents have the least commercial reason to compete today."
+  ]}
+];
+
+const ACTIVITIES = [
+  { dates: "2026 to 2029", loc: "Chicago, IL", org: "Trott Business Program", role: "2026 cohort", bullets: [
+    "Accepted into the 2026 cohort of a selective three-year program in financial analysis, valuation and strategy, taught through weekly workshops and coursework at the Booth School of Business.",
+    "Worked through the program's business skills curriculum alongside professional advising and mentorship from upperclassmen and Booth students, with Booth coursework layered onto my College classes in the second, third and fourth years."
+  ]},
+  { dates: "Sep 2025 to present", loc: "Chicago, IL", org: "UChicago Sustainable Investing Group", role: "Investment Analyst", bullets: [
+    "Built a three-statement model and DCF for Costco through FY2030, and found that discounted cash flow alone could not justify the trading multiple at any WACC I could defend.",
+    "Argued the gap sits in membership economics, where renewal rates and fee income behave more like a subscription annuity than retail earnings, which is what a standard DCF is worst at capturing.",
+    "Kept the buy and hold recommendation on that basis, treating the premium as compensation for the durability of fee income rather than something the terminal value would eventually grow into.",
+    "Flagged the case against it in the pitch itself: mature-market saturation, or any sustained trade-down in the core basket, takes a meaningful bite out of the terminal value."
+  ]},
+  { dates: "Sep 2025 to present", loc: "Chicago, IL", org: "Eleven: Private Investors of Chicago", role: "Investment Analyst", bullets: [
+    "Attend weekly investment education workshops covering the three financial statements, WACC, DCF modeling and core valuation concepts, alongside stock pitch preparation.",
+    "Built the foundation for how revenue growth, margins, debt, cash flow and discount rates connect to a valuation, and how to communicate that to people who will push back on it."
+  ]},
+  { dates: "Mar 2026 to present", loc: "Chicago, IL", org: "Asian Leadership Initiative", role: "General Member", bullets: [
+    "Support speaker events, information sessions and career focused programming for AAPI undergraduates across UChicago, Harvard, Duke, NYU and Columbia.",
+    "Assisted national board members in planning the 550 attendee NYC Summit, covering speaker coordination, attendee outreach, event materials and programming preparation for a conference featuring Peng Zhao and Alex Chi."
+  ]},
+  { dates: "2026 to 2027", loc: "Chicago, IL", org: "UChicago Private Equity Explorers Program", role: "Inaugural cohort", bullets: [
+    "Selected for the inaugural cohort of the program, a year-long introduction to private investing built around workshops, buyside networking nights and an industry speaker series with firms including KKR and Bain Capital.",
+    "Completed the required Wall Street Prep modules on integrated three statement modeling, private company analysis, LBO modeling, and private credit and direct lending.",
+    "Building toward the Private Equity Deal Pitch Competition in May."
+  ]},
+  { dates: "Jan 2026 to present", loc: "Chicago, IL", org: "Women in Business", role: "General Member", bullets: [
+    "Member of the finance group's cohort, which meets weekly for discussion sessions on market trends, recent deals, and industry news."
+  ]}
+];
+
+const INTERESTS = [
+  { t: "Global grocery stores", d: "Waitrose in the UK, REWE in Germany, E-mart in Korea, Costco in the States." },
+  { t: "Flute", d: "Started at nine; the longest I have gone without playing is three weeks. ABRSM Grade 8, so qualified to teach beginner to intermediate. Classical through to jazz improv." },
+  { t: "Cable knitting", d: "Five scarves so far. Tried a sweater and failed; currently trying again and have one arm." },
+  { t: "Wheel-thrown pottery", d: "Still firmly in the lopsided-bowl era." },
+  { t: "Cooking", d: "Italian and Korean, especially Gamberi Crema." },
+  { t: "Swimming", d: "Breaststroke, by a wide margin." },
+  { t: "Word games", d: "Word Hunt and the NYT games." },
+  { t: "Legally Blonde", d: "I know every song and can sing along to all of it, but I have never actually seen it staged — I was in the pit orchestra." }
+];
+
 class Component extends DCLogic {
+  componentDidMount() {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = "1";
+          e.target.style.translate = "0 0";
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    this._io = io;
+    setTimeout(() => {
+      document.querySelectorAll("[data-reveal]").forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight) return;
+        el.style.opacity = "0";
+        el.style.translate = "0 14px";
+        el.style.transition = (el.style.transition ? el.style.transition + "," : "") + "opacity .6s ease, translate .6s ease";
+        io.observe(el);
+      });
+    }, 50);
+  }
+  componentWillUnmount() { this._io && this._io.disconnect(); }
   renderVals() {
-    return { showInterests: this.props.showInterests ?? true };
+    return {
+      experience: EXPERIENCE.map((x, i) => ({ ...x, n: String(i + 1).padStart(2, "0") })),
+      activities: ACTIVITIES.map((x, i) => ({ ...x, n: String(i + 1).padStart(2, "0") })),
+      interests: INTERESTS.map((x, i) => ({ ...x, n: String(i + 1) })),
+      showInterests: this.props.showInterests ?? true
+    };
   }
 }
+
 </script>
 </body>
 </html>
